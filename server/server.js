@@ -1,3 +1,4 @@
+const config = require('../config');
 const express = require('express');
 const models = require('./models');
 const expressGraphQL = require('express-graphql');
@@ -8,7 +9,7 @@ const schema = require('./schema/schema');
 const app = express();
 
 // Replace with your mongoLab URI
-const MONGO_URI = '';
+const MONGO_URI = config.password_mongo_url;
 if (!MONGO_URI) {
   throw new Error('You must provide a MongoLab URI');
 }
