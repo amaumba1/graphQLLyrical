@@ -15,9 +15,11 @@ class SongList extends Component {
         return this.props.data.songs.map(song => {
             return (
                 <FontList key={song.id} className="collection-item avatar">
-                <i className="material-icons circle red">play_arrow</i>
-                  {song.title}
-                   <i
+                    <Link to={`/songs/${song.id}`}>
+                        <i className="material-icons circle red">play_arrow</i>
+                            {song.title}
+                    </Link>
+                   <i 
                     className="material-icons"
                     onClick={() => this.onSongDelete(song.id)}
                   >

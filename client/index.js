@@ -9,8 +9,12 @@ import App from './components/App';
 import SongList from './components/SongList';
 import SongCreate from './components/SongCreate';
 import SongDetail from './components/SongDetail';
+import Welcome from './components/Welcome';
 
-const client = new ApolloClient({});
+
+const client = new ApolloClient({
+  dataIdFromObject: o => o.id
+});
 
 
 
@@ -20,6 +24,7 @@ const Root = () => {
       <Router history={hashHistory}> 
         <Route path="/" component={App}>
           <IndexRoute component={SongList} />
+          <Route path="welcome" component={Welcome}/>
           <Route path="songs/new" component={SongCreate} /> 
           <Route path="songs/:id" component={SongDetail} />  
         </Route> 
